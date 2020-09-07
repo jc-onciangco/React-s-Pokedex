@@ -1,0 +1,295 @@
+
+/* POKEMON IMAGE */
+
+.pokemon-image {
+    display: grid;
+    place-items: center;
+    /* background-color: green; */
+    padding: 40px 0;
+}
+
+.pic-wrapper {
+    background-color: white;
+    height: 350px;
+    width: 350px;
+    position: relative;
+    border: 5px solid #4E5665;
+    border-radius: 8px;
+}
+
+.types {
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.type {
+    font-size: 1.4rem;
+    color: white;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0 5px;
+}
+
+.pic {
+    height: 100%;
+    animation: image 2s cubic-bezier(0.000, 1.280, 1.000, -0.420) forwards;
+}
+
+.pic:hover {
+    animation: wiggle 1s linear forwards;
+}
+
+
+@keyframes wiggle {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-2px);
+    }
+    40% {
+        transform: translateX(4px);
+    }
+    60% {
+        transform: translateX(-3px);
+    }
+    80% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes image {
+    0% {
+        transform: scale(0.2) rotateZ(0);
+    }
+    50% {
+        transform: scale(1.2) rotateZ(3deg);
+    }
+    100% {
+        transform: scale(1) rotateZ(0);
+    }
+}
+
+.pokeball-bounce {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation-name: bounce;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -60%);
+    }
+}
+
+.order {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4E5665;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* STAT */
+
+.stat {
+    display: grid;
+    place-items: center;
+    padding-bottom: 40px;
+}
+
+.stat-container {
+    width: 50%;
+    background-color: white;
+    border: 3px solid #4E5665;
+    padding: 5px;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.title {
+    position: absolute;
+    background-color: #4E5665;
+    color: white;
+    padding: 2px 10px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    border-radius: 6px;
+}
+
+.size, .habitat,.egg-groups, .growth-rate {
+    margin-top: 20px;
+}
+
+.ability-title, .habitat-title, .egg-groups-title, .growth-rate-title {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.hidden-ability {
+    color: #EE0077;
+    position: reltaive;
+    font-size: 0.9rem;
+    display: block;
+}
+
+
+.height-title {
+    top: 0;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-transform: capitalize;
+}
+
+.weight-title {
+    top: 0;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-transform: capitalize;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    text-transform: capitalize;
+}
+
+.content p {
+    flex: 1;
+    text-align: center;
+}
+
+/* BASE-STAT */
+
+.base-stat {
+    /* background-color: red; */
+    padding-bottom: 40px;
+    display: grid;
+    place-items: center;
+}
+
+.base-stat-wrapper {
+    /* background-color: green; */
+    width: 50%;
+}
+
+.base-stat-name {
+    display: flex;
+    margin-bottom: 10px;
+    height: 40px;
+    border-radius: 7px;
+}
+
+.base-stat-name > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+
+.base-stat-name > .status {
+    /* background-color: orange; */
+    border-radius: 7px 0 0 7px;
+    flex: 1;
+    color: white;
+}
+
+.base-stat-name > .value {
+    background-color: white;
+    flex: 1;
+    border-radius: 0 7px 7px 0;
+}
+
+/* EVOLUTION CHAIN */
+
+ .evolution-chain {
+     /* background-color: blue; */
+     padding-bottom: 40px;
+     display: grid;
+     place-items: center;
+ }
+
+ .evolution-chain-title {
+     width: 50%;
+     text-align: center;
+     background-color: #4E5665;
+     color: white;
+     padding: 2px 10px;
+     font-size: 1.1rem;
+     letter-spacing: 2px;
+     border-radius: 6px;
+     margin-bottom: 25px;
+ }
+
+ .evolution-chain-wrapper {
+     width: 50%;
+     /* background-color: orange; */
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .first-evolution-collection,
+ .second-evolution-collection,
+ .third-evolution-collection
+ {
+     width: 100%;
+     display: grid;
+     place-items: center;
+     padding: 20px 0;
+     border-radius: 8px;
+     margin-bottom: 20px;
+ }
+
+ .evolution-phase {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     position: relative;
+     background-color: white;
+     border: 3px solid #4E5665;
+ }
+
+ .evolve-name {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: #4E5665;
+    padding: 3px 6px;
+    color: white;
+ }
+
+ .evolution-pic {
+     width: 100%;
+ }

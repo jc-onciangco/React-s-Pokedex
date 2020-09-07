@@ -1,0 +1,101 @@
+.pokeball-icon {
+    transform: rotateZ(0);
+    animation: pokeball 20s ease-in  infinite;
+}
+
+.pokemon-icon {
+  transform: scale(1);
+  transition: 0.6s ease-in;
+}
+
+.pokemon-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes pokeball {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .select-region {
+    background-color: #E91E63;
+    margin-top: 20px;
+    width: 200px;
+    position: absolute;
+    top: 80px;
+    font-size: 1.2rem;
+  }
+
+  .region-label {
+    position: absolute;
+    top: 80px;
+    left: 275px;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(0,0,0,0.2);
+  }
+
+  .selected-value-wrapper {
+    display: flex;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 7;
+    background-color: #E91E63;
+  }
+
+  .caret {
+    padding: 5px 10px;
+    color: white;
+  }
+
+  .selected-value {
+    flex: 1;
+    padding: 5px;
+    color: white;
+  }
+
+  .regions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    overflow: hidden;
+    padding-bottom: 5px;
+    height: 0;
+    transition: 0.3s ease-in;
+  }
+
+  .show-regions-wrapper {
+    height:  400px;
+  }
+
+  .board {
+    background-color: #E91E63;
+    transform: translateY(-100%);
+    opacity: 0;
+    padding: 40px 0 5px 0;
+    transition: 0.3s ease-in;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .show-regions {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .region {
+    padding: 3px 6px;
+    color: white;
+  }
+
+  .region:hover {
+    background-color: #DB1C5D;
+  }
