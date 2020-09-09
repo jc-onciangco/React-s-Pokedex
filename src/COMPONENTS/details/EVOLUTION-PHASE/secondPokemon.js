@@ -9,7 +9,7 @@ const SecondPokemon = ({secondPokemon, componentStyle}) => {
                     secondPokemon.map(secondPokemon => {
                         return (
                             <div className="second evolution-phase" key={secondPokemon.id}>
-                                <img className="evolution-pic" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${secondPokemon.id}.png`} />
+                                <img className="evolution-pic" alt={secondPokemon.name} src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${secondPokemon.id}.png`} />
                                 <div className="evolve-name" >{secondPokemon.name}</div>
                             </div>
                         )

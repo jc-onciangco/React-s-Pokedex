@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import Details from './details.js';
 import '../pokemonDetails.css';
@@ -11,6 +10,16 @@ const Pokemon = ({match}) => {
     const [prevPokemon, setPrevPokemon] = useState({});
     const [nextPokemon, setNextPokemon] = useState({});
     const [loading, setLoading] = useState(false);
+
+    let idNumberPrev = parseInt(id) - 1;
+    let prevPokemonIdString = (idNumberPrev>99)? idNumberPrev : (
+        (idNumberPrev>9)? '0'+idNumberPrev.toString() : '00'+idNumberPrev.toString()
+    );
+
+    let idNumberNext = parseInt(id) + 1;
+    let nextPokemonIdString = (idNumberNext>99)? idNumberNext : (
+        (idNumberNext>9)? '0'+idNumberNext.toString() : '00'+idNumberNext.toString()
+    );
 
     useEffect(() => {
         setLoading(true);
@@ -27,17 +36,7 @@ const Pokemon = ({match}) => {
             setNextPokemon({name: res.data.name, id: nextPokemonIdString});
             setLoading(false);
         });
-    }, [match]);
-
-    let idNumberPrev = parseInt(id) - 1;
-    let prevPokemonIdString = (idNumberPrev>99)? idNumberPrev : (
-        (idNumberPrev>9)? '0'+idNumberPrev.toString() : '00'+idNumberPrev.toString()
-    );
-
-    let idNumberNext = parseInt(id) + 1;
-    let nextPokemonIdString = (idNumberNext>99)? idNumberNext : (
-        (idNumberNext>9)? '0'+idNumberNext.toString() : '00'+idNumberNext.toString()
-    );
+    }, [match, id, idNumberNext, idNumberPrev, nextPokemonIdString, prevPokemonIdString]);
 
     return (
         <div>
@@ -50,7 +49,7 @@ const Pokemon = ({match}) => {
                                 <div className="prev-btn">
                                     <Link to={`/pokemon/${prevPokemon.name}-${prevPokemon.id}`}>
                                         <div className="prev-image-wrapper">
-                                            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${prevPokemon.id}.png`} className="prev-image" width="100%" />
+                                            <img alt="img" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${prevPokemon.id}.png`} className="prev-image" width="100%" />
                                         </div>
                                     </Link>
                                     <div className="prev-order">{prevPokemon.id ?? 'LOADING...'}</div>
@@ -66,7 +65,7 @@ const Pokemon = ({match}) => {
                         <div className="next-btn">
                             <Link to={`/pokemon/${nextPokemon.name}-${nextPokemon.id}`}>
                                 <div className="next-image-wrapper">
-                                    <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${nextPokemon.id}.png`} className="next-image" width="75px" />
+                                    <img alt="img" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${nextPokemon.id}.png`} className="next-image" width="75px" />
                                 </div>
                             </Link>
                             <Link to={`/pokemon/${nextPokemon.name}-${nextPokemon.id}`}>

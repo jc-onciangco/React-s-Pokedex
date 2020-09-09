@@ -37,7 +37,7 @@ const Details = ({pokemonMainDetails, loading}) => {
             .catch(err => {
                 console.log(err);
             })    
-    }, [loading]);
+    }, [loading, pokemonMainDetails, specie]);
 
 
    const borderColor = {
@@ -48,12 +48,12 @@ const Details = ({pokemonMainDetails, loading}) => {
         <div className="details-wrapper">
             <div className="name-specie-wrapper">
                 <div className="name-specie">
-                    <img className="pokeball-icons" src={pokeball} height="50%"/>
+                    <img alt="pokeball-icon" className="pokeball-icons" src={pokeball} height="50%"/>
                     <div className="specie-wrapper">
                         <p className="name">{pokemonMainDetails.name}</p>
                         <p className="specie">{pokemonMainDetails.id}</p>
                     </div>
-                    <img className="pokeball-icons" src={pokeball} height="50%"/>
+                    <img alt="pokeball-icon" className="pokeball-icons" src={pokeball} height="50%"/>
                 </div>
             </div>
 
@@ -61,9 +61,9 @@ const Details = ({pokemonMainDetails, loading}) => {
                 <div className="pic-wrapper" style={borderColor}>
                     {
                         loading? (
-                            <img src={pokeball} className="pokeball-bounce" />
+                            <img alt="pokeball-loading" src={pokeball} className="pokeball-bounce" />
                         ) : 
-                        (<img className="pic" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonMainDetails.id}.png`} />)
+                        (<img alt="pokemon" className="pic" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonMainDetails.id}.png`} />)
                     }
                 </div>
                 <div className="types">

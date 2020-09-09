@@ -1,6 +1,5 @@
 import React from 'react';
 import colors from './colors';
-import {Link}from 'react-router-dom';
 
 const PokemonType = ({type, pathname}) => {
     const mycolor = colors.find(color => {

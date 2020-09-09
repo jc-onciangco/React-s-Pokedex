@@ -7,7 +7,7 @@ const FirstPokemon = ({firstPokemon, componentStyle}) => {
                 firstPokemon?
                 (
                     <div className="first evolution-phase">
-                        <img className="evolution-pic" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${firstPokemon.id}.png`} />
+                        <img className="evolution-pic" alt={firstPokemon.name} src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${firstPokemon.id}.png`} />
                         <div className="evolve-name" >{firstPokemon.name}</div>
                     </div>
                 ):

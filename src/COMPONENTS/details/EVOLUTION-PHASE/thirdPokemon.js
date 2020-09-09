@@ -7,7 +7,7 @@ const ThirdPokemon = ({thirdPokemon, componentStyle}) => {
                 thirdPokemon?
                 (
                     <div className="third evolution-phase">
-                        <img className="evolution-pic" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${thirdPokemon.id}.png`} />
+                        <img className="evolution-pic" alt={thirdPokemon.name} src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${thirdPokemon.id}.png`} />
                         <div className="evolve-name" >{thirdPokemon.name}</div>
                     </div>
                 ):

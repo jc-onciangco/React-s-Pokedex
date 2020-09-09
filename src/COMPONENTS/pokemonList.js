@@ -91,14 +91,6 @@ const PokemonList = ({pokemon, index, pathname}) => {
     const [types, setTypes] = useState([]);
     const spriteRef = useRef();
 
-    useEffect(() => {
-        axios.get(pokemon.url)
-            .then(res => {
-                setSprite({sprite: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${newOrder}.png`, order: res.data.order});
-                setTypes( res.data.types.map(type => { return {name: type.type.name, url: type.type.url}}));
-            });
-    }, [])
-
     let order = pokemon.currentPage.slice(pokemon.currentPage.search('offset')+7);
     let removedOrder = order.slice(0,order.search('&'));
     let finalOrder = (pokemon.currentPage==='https://pokeapi.co/api/v2/pokemon')? 0 : removedOrder;
@@ -108,6 +100,14 @@ const PokemonList = ({pokemon, index, pathname}) => {
     );
     let newOrder = parseInt(pokemonOrderVersionTwo)>806? (parseInt(pokemonOrderVersionTwo)+2).toString() : pokemonOrderVersionTwo;
     
+    useEffect(() => {
+        axios.get(pokemon.url)
+            .then(res => {
+                setSprite({sprite: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${newOrder}.png`, order: res.data.order});
+                setTypes( res.data.types.map(type => { return {name: type.type.name, url: type.type.url}}));
+            });
+    }, [newOrder, pokemon])
+
     return (
         <div className="pokemon-card">
             <Link to={`/pokemon/${pokemon.name}-${pokemonOrderVersionTwo}`}>
